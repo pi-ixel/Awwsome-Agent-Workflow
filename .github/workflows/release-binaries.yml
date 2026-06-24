@@ -36,7 +36,7 @@ jobs:
         working-directory: skills/sr-design
         run: |
           python -m pip install --upgrade pip
-          pip install pyinstaller fastmcp
+          pip install pyinstaller fastmcp typer
 
       - name: Build binary
         working-directory: skills/sr-design
