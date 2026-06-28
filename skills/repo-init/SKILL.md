@@ -72,5 +72,25 @@ Write a minimal AGENTS.md according to the .sdd/AGENTS.md.
 ### Phase 6 **update '目录'**
 Update section '目录' with correct line numbers after all content is assembled. Do NOT fill in placeholders.
 
-### Phase 7 **Remind user should check what is insure**
-Remind user should check what is insure
+### Phase 7 Remind user to manually review key content
+
+Output the following reminder to the user:
+
+```
+⚠️ **Important Reminder**
+
+Auto-generated documents from repo-init have low accuracy. Please manually review the following key items to avoid omissions:
+
+**`.sdd/software_architecture.md`**:
+- **Module list**: Check if all modules are correctly identified — no missing or extra modules
+- **Configuration list**: Verify config files, env vars, startup parameters are all covered
+- **Tech stack**: Confirm language versions, framework versions, and other key tech info are correct
+- **Table of contents**: Ensure line numbers in the 目录 section match actual content
+
+**`AGENTS.md`**:
+- **Build/Test commands**: Verify commands match what the project actually uses
+- **Code style rules**: Confirm indentation, formatting, and other style rules match the project
+- **Project structure**: Verify monorepo/multi-module/single-project classification is correct
+
+Please review each item before proceeding with subsequent workflow steps.
+```
