@@ -36,11 +36,13 @@ version: 2.0
 
 1. 明确当前工作目录
 2. 确认 `SR-design.md` 存在（必须。上一步 SR 设计已保证）
-3. 确认 `AR-clarify.md` 是否存在（可选，存在时优先以其为准）
+3. 确认 `AR-clarify.md` 是否存在：
+   - **存在** → 当前为 **AR 模式**，输出路径为 `./.sdd/{SR}/{AR}/module-boundary-design.md`（与 AR-clarify.md 同目录），功能设计以 AR-clarify.md 为准
+   - **不存在** → 当前为 **SR 模式（免拆分）**，输出路径为 `./.sdd/{SR}/module-boundary-design.md`，功能设计以 SR-design.md 为准
 4. 确认 `.sdd/software_architecture.md` 存在（必须，获取模块定义和现有依赖关系）
 
 向用户确认以当前工作目录继续，告知用户将基于以下文档：
-- 功能设计：`SR-design.md`（或 `AR-clarify.md`，如果存在）
+- 功能设计：`SR-design.md`（SR 模式）或 `AR-clarify.md`（AR 模式）
 - 架构参考：`.sdd/software_architecture.md`
 
 ---
@@ -51,7 +53,8 @@ version: 2.0
 
 ```
 **拷贝模板：**
-拷贝`<skill-dir>/references/module-boundary-design-template.md` 到 `<当前工作目录>/module-boundary-design.md`
+- AR 模式：拷贝`<skill-dir>/references/module-boundary-design-template.md` 到 `./.sdd/{SR}/{AR}/module-boundary-design.md`
+- SR 模式：拷贝`<skill-dir>/references/module-boundary-design-template.md` 到 `./.sdd/{SR}/module-boundary-design.md`
 
 请读取以下文件完成模块边界设计：
 
@@ -255,4 +258,8 @@ version: 2.0
 
 向用户展示最终的 `module-boundary-design.md` 内容，请用户确认。
 
-判断当前工作目录下是否存在 `workflow.md`，若存在，则询问用户是否标记工作目录下模块边界设计为完成。
+判断 `workflow.md` 位置：
+- AR 模式：`./.sdd/{SR}/workflow.md`
+- SR 模式：`./.sdd/{SR}/workflow.md`
+
+若存在，则询问用户是否标记工作目录下模块边界设计为完成。
